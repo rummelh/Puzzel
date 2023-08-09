@@ -8,9 +8,23 @@ def solve_puzzle(Board, Source, Destination):
     #initialize queue contains distance, current cell, and path
     pq = [(0, Source, [Source])]
     visited = set()
+    direction = ''
     while pq:
         current_distance, current_vertex, path = heapq.heappop(pq)
         if current_vertex == Destination:
+            prevx,prevy = path[0]
+            for cells in range(1, len(path)):
+                x, y = path[cells]
+                if x-1 == prevx:
+                    direction = direction + 'D'
+                if x+1 == prevx:
+                    direction = direction + 'U'
+                if y+1 == prevy:
+                    direction = direction + 'L'
+                if y-1 == prevy:
+                    direction = direction + 'R'
+                prevx,prevy = path[cells]
+            path.append(direction)
             return path
         else:
             visited.add(current_vertex)
