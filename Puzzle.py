@@ -24,8 +24,8 @@ def solve_puzzle(Board, Source, Destination):
                 if y-1 == prevy:
                     direction = direction + 'R'
                 prevx,prevy = path[cells]
-            path.append(direction)
-            return path
+            answer = (path, direction)
+            return answer
         else:
             visited.add(current_vertex)
         row, column = current_vertex
@@ -44,4 +44,4 @@ Puzzle = [
 ['-', '-', '-', '-', '-'],
 ['#', '-', '#', '#', '-'],
 ['-', '#', '-', '-', '-']]
-solve_puzzle(Puzzle, (0,2), (2,2))
+print(solve_puzzle(Puzzle, (0,2), (2,2)))
