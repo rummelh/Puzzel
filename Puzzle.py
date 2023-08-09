@@ -11,9 +11,6 @@ def solve_puzzle(Board, Source, Destination):
     while pq:
         current_distance, current_vertex, path = heapq.heappop(pq)
         if current_vertex == Destination:
-            print(path)
-            #path_index = [(x,y) for x,y in path]
-            #return path_index
             return path
         else:
             visited.add(current_vertex)
